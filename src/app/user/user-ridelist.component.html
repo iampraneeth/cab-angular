@@ -1,0 +1,31 @@
+<br><br>
+<div class="container">
+    <h4 style="color:azure">YOUR RIDES</h4>
+</div>
+
+<br>
+
+<div class="container">
+    <table class="table table-dark" *ngIf="users && users.length">
+        <thead>
+            <tr>
+                <th>Ride ID</th>
+                <th>Pick Up Location</th>
+                <th>Drop Location</th>
+                <th>Ride Fare</th>
+                <th>Ride Date</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let user of users">
+                <td>{{user.userRideId}}</td>
+                <td>{{user.pickUpLocation}}</td>
+                <td>{{user.dropLocation}}</td>
+                <td>{{user.rideFare | currency:"INR"}}</td>
+                <td>{{user.rideDate | date:"EEEE , MMMM d , yyyy"}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br><br>

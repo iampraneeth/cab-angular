@@ -1,0 +1,19 @@
+<br>
+<div class="container" style="width: 450px; background-color: white; opacity: 0.9;  border-radius: 7px;; margin-left:100px">
+        <h4 class="text-center text-dark">Login Form</h4>
+        <form action="form-horizontal" (ngSubmit)="loginOfAdmin()" #adminForm="ngForm"  >
+            <div class="form-group">
+                <label class="form-label text-dark">Email Id:</label>
+                <input type="email" class="form-control" id="email" [(ngModel)]="admin.email" name="email" required />
+            </div>
+            <div class="form-group">
+                <label class="form-label text-dark">Password</label>
+                <input type="password" class="form-control" id="password" [(ngModel)]="admin.password" name="password" required />
+            </div>
+    
+            <button type="submit" class="btn " style="background-color:#e6b800; margin-left:175px">Login</button>
+            
+            <br>
+        </form>
+    </div>
+    <br>
