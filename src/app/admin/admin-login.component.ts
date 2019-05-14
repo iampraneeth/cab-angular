@@ -17,13 +17,13 @@ export class AdminLoginComponent{
     }
 
     loginOfAdmin(){
-        console.log(this.admin);
+       // console.log(this.admin);
         let email = (<HTMLInputElement>document.getElementById("email")).value;
         let password = (<HTMLInputElement>document.getElementById("password")).value;
         
         this.adminService.loginOfAdmin(email,password).subscribe((data) => {
             alert("Login Successful");
-            console.log(data);
+            //console.log(data);
             if (data != null) {
                 alert("done");
                 this.router.navigate(['/admin/driverManagement']);

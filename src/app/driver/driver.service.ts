@@ -14,7 +14,7 @@ export class DriverService {
     constructor(private http: HttpClient) {
     }
     registrationForDriver(driver: Driver): Observable<Driver> {
-        console.log(driver);
+        //console.log(driver);
         return this.http.post<Driver>(this.baseUrl + "/registration", driver,{headers: this.headers});
     }
 
@@ -23,6 +23,9 @@ export class DriverService {
         return this.http.get<Driver>(this.baseUrl + "/login/" + email + "/" + password, {headers: this.headers});
     }
   
+    getDetailsOfUser(user:User): Observable<User>{
+        return this.http.post<User>("/user/rideNow/",user,{headers: this.headers});
+    }
 
 
 }

@@ -19,14 +19,14 @@ export class SignInComponent{
 
     signInDetailsOfUser() {
        // alert("method");
-        console.log(this.user);
+       // console.log(this.user);
         let password = (<HTMLInputElement>document.getElementById("password")).value;
         let email = (<HTMLInputElement>document.getElementById("email")).value;
         
         this.userService.signInDetailsOfUser(email,password).subscribe((data) => {
             console.log(this.user.email);
             alert("Login Successful");
-            console.log(data);
+            //console.log(data);
             if (data != null) {
                 // alert("done");
                 this.router.navigate(['/user/bookRide']);

@@ -27,4 +27,5 @@ export class UserService{
       bookRideOfUser(pickUpAt:string,dropAt:string){
         return this.http.get<Distance>(this.baseUrl+"/bookride/"+pickUpAt+"/"+dropAt);
       }
+      
 }

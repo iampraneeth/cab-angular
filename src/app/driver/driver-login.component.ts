@@ -19,20 +19,21 @@ export class DriverLoginComponent implements OnInit{
     }
 
     loginDetailsOfDriver(){
-        console.log(this.driver);
+       // console.log(this.driver);
         let password = (<HTMLInputElement>document.getElementById("password")).value;
         let email = (<HTMLInputElement>document.getElementById("email")).value;
 
         this.driverService.loginDetailsOfDriver(email,password).subscribe((data)=>{
             alert("Login Successfull");
-            console.log(data);
+            //console.log(data);
             if(data!=null){
                this.router.navigate(["/driver/welcome"]);
             }
-            else{
-                alert("enter correct credentials");
-            }
-        })
+        }, (err) => {
+            alert("Invalid credentials");
+            this.driver.email = "";
+            this.driver.password = "";
+        });
     }
 }
 
