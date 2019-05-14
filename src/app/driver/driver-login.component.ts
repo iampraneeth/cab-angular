@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Driver} from './driver';
 import { DriverService } from './driver.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { DriverService } from './driver.service';
 
 export class DriverLoginComponent implements OnInit{
     driver: Driver;
-    constructor(private driverService : DriverService){}
+    constructor(private driverService : DriverService, private router:Router){}
     ngOnInit(){
         this.driver = new Driver();
     }
@@ -26,7 +27,7 @@ export class DriverLoginComponent implements OnInit{
             alert("Login Successfull");
             console.log(data);
             if(data!=null){
-                alert("done");
+               this.router.navigate(["/driver/welcome"]);
             }
             else{
                 alert("enter correct credentials");

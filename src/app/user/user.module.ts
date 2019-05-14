@@ -1,13 +1,12 @@
-import { NgModule }
-    from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { BrowserModule } from '@angular/platform-browser';
 
-import { BookRideComponent } from './book-Ride.component';
+import { BookRideComponent } from './book-ride.component';
 
 
 
-import { RideNowComponent } from './ride-Now.component';
+import { RideNowComponent } from './ride-now.component';
 
 import { SelectDriverComponent } from './select-driver.component';
 
@@ -16,10 +15,11 @@ import { UserSignUpComponent } from './sign-up.component';
 import { RouterModule } from '@angular/router';
 import { userRoutes } from './user.route';
 import { SignInComponent } from './sign-in.component';
+import { UserService } from './user.service';
 
+import { FormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { UserRideListComponent } from './user-ridelist.component';
-
-
 
 @NgModule({
 
@@ -37,9 +37,11 @@ import { UserRideListComponent } from './user-ridelist.component';
     ],
 
     imports: [
-
+        HttpClientModule,
+        FormsModule,
         BrowserModule,
-        RouterModule.forChild(userRoutes)
+        RouterModule.forChild(userRoutes),
+        
     ],
 
     exports: [
@@ -52,7 +54,7 @@ import { UserRideListComponent } from './user-ridelist.component';
         RouterModule,
         UserRideListComponent
     ],
-    providers: []
+    providers: [UserService]
 })
 
 export class UserModule {

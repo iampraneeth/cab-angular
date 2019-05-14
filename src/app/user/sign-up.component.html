@@ -1,48 +1,60 @@
 
 <br >
-<div class="mx-auto" style="width:400px;border-radius:10px;  background-color:black; opacity: 0.6;">
+
+<div class="mx-auto" style="width:400px;border-radius:10px;  background-color:black; opacity: 0.7;">
     <h3 class="text-center text-light">Sign Up</h3>
-    <form class="form-horizontal" >
+    <form class="form-horizontal" (ngSubmit)="signUpDetailsOfUser()" #accountForm="ngForm">
+       
         <div class="form-group">
-            <label class="control-label col-sm-2 text-light" for="name">Name:</label>
-            <div class="col-sm-12">
-                <input type="text" class="form-control" id="name" placeholder="Enter Name" required>
+            <label class="form-label text-light" for="username">Name</label>
+            <input type="text" class="form-control" id="username" placeholder="Enter Name" [(ngModel)]="user.username"
+                name="username" #username="ngModel" required [class.is-invalid]="username.touched && username.invalid" />
+            <div class="text-danger" [class.d-none]="username.valid || username.untouched">
+                Name is required
             </div>
         </div>
 
         <div class="form-group">
-            <label class="control-label col-sm-2 text-light" for="email">Email:</label>
-            <div class="col-sm-12">
-                <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+            <label class="form-label text-light" for="email">Email Id</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter EmailId"
+                [(ngModel)]="user.email" name="email" #email="ngModel"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                [class.is-invalid]="email.touched && email.invalid" required />
+            <div *ngIf="email.errors && (email.invalid || email.touched)" class="invalid-feedback">
+                <div *ngIf="email.errors?.required">Email is required</div>
+                <div *ngIf=" email.errors?.pattern">Email must be a valid email address</div>
             </div>
         </div>
+
 
         <div class="form-group">
             <label class="control-label col-sm-2 text-light" for="password">Password:</label>
-            <div class="col-sm-12">
-                <input type="password" class="form-control" id="password" placeholder="Enter Password"
-                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-                    required />
+            <input type="password" class="form-control" id="password" placeholder="Enter Password"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                [(ngModel)]="user.password" name="password" #password="ngModel"
+                [class.is-invalid]="password.touched && password.invalid" required />
+            <div *ngIf="password.errors && password.touched">
+                <div class="text-danger" *ngIf="password.errors?.required">Password is must</div>
+                <div class="text-danger" *ngIf="password.errors?.pattern">Password should contain atleast one
+                    capital letter, number
+                    digits and must contain at least 8 characters</div>
             </div>
         </div>
+
 
         <div class="form-group">
-            <label class="control-label col-sm-10 text-light" for="confirmPassword">Confirm Password:</label>
-            <div class="col-sm-12">
-                <input type="password" class="form-control form-control-sm" id="confirmPassword" placeholder="Re-Enter Password" oninput="check(this)" required />
+            <label class="form-label text-light" for="contact">Contact</label>
+            <input type="tel" class="form-control" id="number" pattern="^\d{10}$"
+                placeholder="Enter Mobile Number" [(ngModel)]="user.number" name="number" #number="ngModel"
+                [class.is-invalid]="number.touched && number.invalid" required />
+            <div *ngIf="number.errors && number.touched">
+                <div class="text-danger" *ngIf="number.errors?.required">Phone no. is required</div>
+                <div class="text-danger" *ngIf="number.errors?.pattern">Phone no. must be 10 digits</div>
             </div>
         </div>
+        <button type="submit" class="btn active text-center text-dark"  style="margin-left:40%; font-weight:bold;background-color: #e6b800" [disabled]="accountForm.form.invalid">SignUP</button>
 
-        <div class="form-group">
-            <label class="control-label col-sm-10 text-light" for="mobileNumber">Mobile Number:</label>
-            <div class="col-sm-12">
-                <input type="tel" class="form-control" id="mobileNumber" pattern="/(6|7|8|9)\d{9}/"
-                 title="Enter Mobile number starting with a number between 6-9 and length should be 10" placeholder="Enter Mobile Number" required />
-            </div>
-        </div>
-
-        <button type="submit" class="btn active text-center text-dark" style="margin-left:40%; font-weight:bold;background-color: #e6b800">Sign Up</button>
        <br><br>
     </form>
 </div>

@@ -1,7 +1,7 @@
-<div>
-    <ul class="nav justify-content-center nav-tabs" style="background-color:transparent; float: right ">
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+<div style="background-color:aliceblue">
+    <ul class="nav justify-content-end nav-tabs" style="background-color:transparent">
+        <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdownMenuLink" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Availability
             </a>
@@ -9,19 +9,29 @@
                 <a class="dropdown-item" href="#"> Online</a>
                 <a class="dropdown-item" href="#">Offline</a>
             </div>
+        </li> -->
+        <li class="nav-item ">
+            <a routerLink="/driver/notification" class="nav-link text-dark">Notifications</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Notifications</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Reviews</a>
+        <li class="nav-item ">
+            <a routerLink="/driver/reviews" class="nav-link text-dark">Reviews</a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" href="#">Rides</a>
+        <li class="nav-item ">
+            <a routerLink="/driver/rides" class="nav-link text-dark" >Rides</a>
+        </li>
+        <li class="nav-item" style="margin-top: 10px; margin-right: 5px">  
+            <a class="text-dark">Status:</a>
+        </li>
+        <li>
+            
+            <label class="switch" style="margin-top: 5px">
+                <input type="checkbox" checked>
+                <span class="slider round" ></span>
+            </label>
         </li>
     </ul>
 </div>
-<div >
+<div>
     <img src="assets/images/cae2.jpg" class="img-responsive" width="100%">
 </div>

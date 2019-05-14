@@ -25,7 +25,7 @@ export class DriverRegistrationComponent implements OnInit{
             console.log("success");
             console.log(data);
             if(data!=null){
-                alert("Done");
+                alert("Registration successful");
                 this.router.navigate(["/driver/login"]);
             }
         })

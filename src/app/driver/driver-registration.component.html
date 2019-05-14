@@ -1,120 +1,176 @@
 <br>
-<div class="container" style="width: 40%; background-color: black; opacity: 0.6; border-radius: 10px">
+<div class="container" style="width: 80%; background-color: black; opacity: 0.8; border-radius: 10px">
     <h4 class="text-center text-light">Registration Form</h4>
     <form class="form-horizontal" (ngSubmit)="registrationForDriver()" #accountForm="ngForm">
-        <div class="form-group">
-            <label class="form-label text-light" for="name">Name</label>
-            <input type="text" class="form-control" id="name" placeholder="Enter Name" [(ngModel)]="driver.name"
-                name="name" #name="ngModel" required [class.is-invalid]="name.touched && name.invalid" />
-            <div class="text-danger" [class.d-none]="name.valid || name.untouched">
-                Name is required
-            </div>
-        </div>
 
-        <div class="form-group">
-            <label class="form-label text-light" for="email">Email Id</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter EmailId" [(ngModel)]="driver.email"
-                name="email" #email="ngModel" [class.is-invalid]="email.touched && email.invalid" required />
-                <div class="text-danger" [class.d-none]="email.valid || email.untouched">
-                    Email is required
+        <div class="row">
+            <div class="col-md-4">
+
+                <div class="form-group">
+                    <label class="form-label text-light" for="name">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter Name" [(ngModel)]="driver.name"
+                        name="name" #name="ngModel" required [class.is-invalid]="name.touched && name.invalid" />
+                    <div class="text-danger" [class.d-none]="name.valid || name.untouched">
+                        Name is required
+                    </div>
                 </div>
-        </div>
 
-
-        <div class="form-group">
-            <label class="form-label text-light" for="contact">Contact</label>
-            <input type="tel" class="form-control" id="contact" pattern ="^\d{10}$"
-                placeholder="Enter Mobile Number" [(ngModel)]="driver.contact" name="contact" #contact="ngModel" [class.is-invalid]="contact.touched && contact.invalid" required />
-                <div *ngIf = "contact.errors && contact.touched">
-                    <div class = "text-danger" *ngIf = "contact.errors?.required">Phone no. is required</div>
-                    <div class = "text-danger" *ngIf = "contact.errors?.pattern">Phone no. must be 10 digits</div>
+                <div class="form-group">
+                    <label class="form-label text-light" for="email">Email Id</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter EmailId"
+                        [(ngModel)]="driver.email" name="email" #email="ngModel"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                        [class.is-invalid]="email.touched && email.invalid" required />
+                    <div *ngIf="email.errors && (email.invalid || email.touched)" class="invalid-feedback">
+                        <div *ngIf="email.errors?.required">Email is required</div>
+                        <div *ngIf=" email.errors?.pattern">Email must be a valid email address</div>
+                    </div>
                 </div>
-        </div>
 
-        <div class="form-group">
-            <label class="form-label text-light">Gender</label> &nbsp;&nbsp;
-            <div class="form-check form-check-inline text-light">
-                <input type="radio" name="gender" value="Female" class="form-check-input text-light"
-                    [(ngModel)]="driver.gender" #gender="ngModel" [class.is-invalid]="gender.touched && gender.invalid"/>Female
+                <div class="form-group">
+                    <label class="form-label text-light" for="contact">Contact</label>
+                    <input type="tel" class="form-control" id="contact" pattern="^\d{10}$"
+                        placeholder="Enter Mobile Number" [(ngModel)]="driver.contact" name="contact" #contact="ngModel"
+                        [class.is-invalid]="contact.touched && contact.invalid" required />
+                    <div *ngIf="contact.errors && contact.touched">
+                        <div class="text-danger" *ngIf="contact.errors?.required">Phone no. is required</div>
+                        <div class="text-danger" *ngIf="contact.errors?.pattern">Phone no. must be 10 digits</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label text-light">Gender</label> &nbsp;&nbsp;
+                    <div class="form-check form-check-inline text-light">
+                        <input type="radio" name="gender" value="Female" class="form-check-input text-light"
+                            [(ngModel)]="driver.gender" #gender="ngModel"
+                            [class.is-invalid]="gender.touched && gender.invalid" />Female
+                    </div>
+
+                    <div class="form-check form-check-inline text-light">
+                        <input type="radio" name="gender" value="Male" class="form-check-input text-light"
+                            [(ngModel)]="driver.gender" />Male
+                    </div>
+                    <div *ngIf="gender.invalid">
+                        Gender required.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label text-light">Date of Birth:</label>
+                    <input type="date" id="start" value="2018-07-22" min="1950-01-01" max="2019-12-31"
+                        name="dateofbirth" [(ngModel)]="driver. dateOfBirth" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="form-label text-light" for="address">Address Line</label>
+                    <input type="text" class="form-control" id="address" placeholder="Enter address"
+                        [(ngModel)]="driver.address" name="address" #address="ngModel"
+                        [class.is-invalid]="address.touched && address.invalid" required/>
+                    <div class="text-danger" [class.d-none]="address.valid || address.untouched">
+                        Address is required
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label text-light">State</label>
+                    <select required class="form-control" [(ngModel)]="driver.state" #state="ngModel"
+                        [class.is-invalid]="state.touched && state.invalid" name="state">
+                        <option value="">--Select--</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label text-light">City</label>
+                    <select class="form-control" [(ngModel)]="driver.city" name="city" #city="ngModel"
+                        [class.is-invalid]="city.touched && city.invalid" required>
+                        <option value="">--select--</option>
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="Thane">Thane</option>
+                        <option value="Navi Mumbai">Navi Mumbai</option>
+                        <option value="Bangalore">Bangalore</option>
+                        <option value="Bhopal">Bhopal</option>
+                        <option value="Gurgaon">Gurgaon</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label text-light" for="postalCode">Postal Code</label>
+                    <input type="number" class="form-control" id="postalCode" placeholder="Enter Pincode"
+                        [(ngModel)]="driver.postalCode" name="postalCode" pattern="[0-9]*" #postalCode="ngModel"
+                        [class.is-invalid]="postalCode.touched && postalCode.invalid" required />
+                    <div *ngIf="postalCode.errors && postalCode.touched">
+                        <div class="text-danger" *ngIf="postalCode.errors?.required">Postal code is required</div>
+                        <div class="text-danger" *ngIf="postalCode.errors?.pattern">Postal code must be in between 0-9
+                            digits</div>
+                    </div>
+                </div>
             </div>
 
-            <div class="form-check form-check-inline text-light">
-                <input type="radio" name="gender" value="Male" class="form-check-input text-light"
-                    [(ngModel)]="driver.gender" />Male
+            <div class="col-md-4">
+
+                <div class="form-group">
+                    <label class="form-label text-light" for="licenseNumber">License No:</label>
+                    <input type="text" class="form-control" id="licenseNumber" [(ngModel)]="driver.licenseNumber"
+                        name="licenseNumber" #licenseNumber="ngModel"
+                        [class.is-invalid]="licenseNumber.touched && licenseNumber.invalid" required />
+                    <div class="text-danger" [class.d-none]="licenseNumber.valid || licenseNumber.untouched">
+                        license number is required
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-lable text-light" for="vehicleRegistrationNumber">Vehicle Inspection
+                        Report</label>
+                    <input type="text" class="form-control" id="vehicleRegistrationNumber"
+                        [(ngModel)]="driver.vehicleRegistrationNumber" name="vehicleRegistrationNumber"
+                        #vehicleRegistrationNumber="ngModel"
+                        [class.is-invalid]="vehicleRegistrationNumber.touched && vehicleRegistrationNumber.invalid"
+                        required />
+                    <div class="text-danger"
+                        [class.d-none]="vehicleRegistrationNumber.valid || vehicleRegistrationNumber.untouched">
+                        vehicle registration number is required
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label text-light" for="policereport">Police Report:</label>
+                    <input type="text" class="form-control" id="policereport" [(ngModel)]="driver.policeReport"
+                        name="policereport" #policeReport="ngModel"
+                        [class.is-invalid]="policeReport.touched && policeReport.invalid" required />
+                    <div class="text-danger" [class.d-none]="policeReport.valid || policeReport.untouched">
+                        Police report is required
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2 text-light" for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" placeholder="Enter Password"
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                        title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                        [(ngModel)]="driver.password" name="password" #password="ngModel"
+                        [class.is-invalid]="password.touched && password.invalid" required />
+                    <div *ngIf="password.errors && password.touched">
+                        <div class="text-danger" *ngIf="password.errors?.required">Password is must</div>
+                        <div class="text-danger" *ngIf="password.errors?.pattern">Password should contain atleast one
+                            capital letter, number
+                            digits and must contain at least 8 characters</div>
+                    </div>
+                </div>
             </div>
-
         </div>
-        <div class="form-group">
-            <label class="form-label text-light">Date of Birth:</label>
-            <input type="date" id="start" value="2018-07-22" min="1950-01-01" max="2019-12-31" name="dateofbirth"
-                [(ngModel)]="driver. dateOfBirth" />
-        </div>
-
-        <div class="form-group">
-            <label class="form-label text-light" for="address">Address Line</label>
-            <input type="text" class="form-control" id="address" placeholder="Enter address"
-                [(ngModel)]="driver.address" name="address" />
-        </div>
-
-        <div class="form-group">
-            <label class="form-label text-light">State</label>
-            <select required class="form-control" [(ngModel)]="driver.state" name="state">
-                <option value="">--Select--</option>
-                <option value="Maharashtra">Maharashtra</option>
-                <option value="Karnataka">Karnataka</option>
-                <option value="Madhya Pradesh">Madhya Pradesh</option>
-                <option value="Uttar Pradesh">Uttar Pradesh</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label class="form-label text-light">City</label>
-            <select class="form-control" [(ngModel)]="driver.city" name="city" required>
-                <option value="">--select--</option>
-                <option value="Mumbai">Mumbai</option>
-                <option value="Thane">Thane</option>
-                <option value="Navi Mumbai">Navi Mumbai</option>
-                <option value="Bangalore">Bangalore</option>
-                <option value="Bhopal">Bhopal</option>
-                <option value="Gurgaon">Gurgaon</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label class="form-label text-light" for="postalCode">Postal Code</label>
-            <input type="number" class="form-control" id="postalCode" placeholder="Enter Pincode"
-                [(ngModel)]="driver.postalCode" name="postalCode" required />
-        </div>
-
-        <div class="form-group">
-            <label class="form-label text-light" for="licsno">License No:</label>
-            <input type="text" class="form-control" id="licsno" [(ngModel)]="driver.licenseNumber" name="licsno"
-                required />
-        </div>
-
-        <div class="form-group">
-            <label class="form-lable text-light" for="vir">Vehicle Inspection Report</label>
-            <input type="text" class="form-control" id="vir" [(ngModel)]="driver.vehicleRegistrationNumber" name="vir"
-                required />
-        </div>
-
-        <div class="form-group">
-            <label class="form-label text-light" for="policereport">Police Report:</label>
-            <input type="text" class="form-control" id="policereport" [(ngModel)]="driver.policeReport"
-                name="policereport" required />
-        </div>
+        <button type="submit" class="btn btn-lg btn-success" style="margin-left:500px"
+            [disabled]="accountForm.form.invalid">Register</button>
+        <h6 class="text-center">
+            <br>
+            <a routerLink="/driver/login" class="text-light">Already have an Account?Sign In</a>
+        </h6>
 
 
-        <div class="form-group">
-            <label class="control-label col-sm-2 text-light" for="password">Password:</label>
-            <input type="password" class="form-control" id="password" placeholder="Enter Password"
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-                [(ngModel)]="driver.password" name="password" required />
-
-        </div>
-        <button type="submit" class="btn btn-block btn-primary"  ><a class="text-light" routerLink="/driver/login">
-                Register </a></button>
         <br>
     </form>
 </div>
