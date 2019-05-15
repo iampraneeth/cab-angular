@@ -19,14 +19,19 @@ export class RideNowComponent implements OnInit {
     
 
     ngOnInit() {
-       
-        this.distance = new Distance();
-        this.fetchDistance();
+    //    alert("inside init()")
+    //     this.distance = new Distance();
+    //     console.log(this.distance);
+    //     this.fetchDistance();
        
         //console.log(this.distance.finalDistance)
 
+        this.distance = this.router.getNavigatedData();
+      
+
     }
     fetchDistance(){
+        alert("called");
         this.distance.finalDistance = BookRideComponent.prototype.getDistance();
         console.log(this.distance.finalDistance)
         console.log(this.distance.finalDistance)

@@ -53,20 +53,15 @@
 <div> <img src=" assets/images/cae2.jpg" style="position:relative; width:100%; height: 500px"></div>
 <div class="container"
   style=" position: absolute; width: 60%; z-index: 1;top:80px; left: 300px;background-color: lightgrey; border-radius: 10px">
-  <div class="card">
-
+  
+  <div class="card" >
     <div class="card-header" style="text-align:center">
       <h3>New Driver Request</h3>
     </div>
-
-
     <div class="card-body">
       <div class="row">
-        <div class="col-md-4"></div>
-
-        <div class="col-md-4" *ngFor="let details of drivers" >
+        <div class="col-md-6" *ngFor="let details of drivers.driverDetails" >
           <table class="table table-bordered">
-
             <tbody>
               <tr>
                 <td>Name</td>
@@ -88,22 +83,15 @@
                 <td>Vehicle Registration No: </td>
                 <td>{{details.vehicleRegistrationNumber}}</td>
               </tr>
-              <!-- <tr *ngFor="let driver of Driver">
-                <td>{{driver.name}}</td>
-                <td>{{driver.email}}</td>
-                <td>{{driver.contact}}</td>
-                <td>{{driver.licenseNumber}}</td>
-                <td>{{driver.vehicleRegistrationNumber}}</td>
-              </tr> -->
             </tbody>
           </table>
+        
           <br>
           &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <button type="button" class="btn btn-success">Accept</button>
           &nbsp;&nbsp;
           <button type="button" class="btn btn-danger">Decline</button>
         </div>
-
 
 
       </div>

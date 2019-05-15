@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { DriverReviewsComponent } from './driver-reviews.component';
 import { DriverNotificationComponent } from './driver-notification.component';
 import { DriverRidesComponent } from './driver-rides.component';
+import { AuthenticateService } from './driver-authenticate.service';
 
 @NgModule({
     declarations:[
@@ -41,7 +42,8 @@ import { DriverRidesComponent } from './driver-rides.component';
         
     ],
     providers:[
-        DriverService
+        DriverService,
+        AuthenticateService
     ]
 })
 

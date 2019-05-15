@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Driver } from '../driver/driver';
 import { AdminService } from './admin.service';
 import { ActivatedRoute } from '@angular/router';
+import { DriverDetails } from '../driver/driverdetails';
+
+
 
 
 
@@ -9,12 +11,11 @@ import { ActivatedRoute } from '@angular/router';
     templateUrl:"./admin-driver-management.component.html"
 })
 export class DriverManagementComponent implements OnInit{
-    drivers:Driver[];
+    drivers:DriverDetails;
 
     constructor(private adminService: AdminService, private route: ActivatedRoute){}
 
-    ngOnInit():void{
-     this.drivers = new Driver();
+    ngOnInit(){
      this.adminService.getDetailsOfDriverService().subscribe((data)=>{
         this.drivers = data;
          console.log(data) 

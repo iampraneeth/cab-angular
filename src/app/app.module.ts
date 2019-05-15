@@ -10,6 +10,7 @@ import { ResourceNotFoundComponent } from './notfound.component';
 import { DriverModule } from './driver/driver.module';
 import { AdminModule } from './admin/admin.module';
 import { AboutUsComponent } from './aboutUs.component';
+import "angular2-navigate-with-data";
 
 @NgModule({
   declarations: [
@@ -24,8 +25,8 @@ import { AboutUsComponent } from './aboutUs.component';
     UserModule,
     DriverModule,
     AdminModule,
-    RouterModule.forRoot(appRouter)
-  ],
+    RouterModule.forRoot(appRouter),
+],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { Component } from '@angular/core'
 import { User } from './user';
 import { UserService } from './user.service';
+import { AuthenticateService } from './user-authenticate.service';
 
 
 @Component({
@@ -10,7 +11,8 @@ import { UserService } from './user.service';
 })
 export class SignInComponent{
     user: User;
-    constructor(private userService: UserService, private router:Router) {
+    invalidLogin = false;
+    constructor(private userService: UserService, private router:Router,  private authenticateService: AuthenticateService) {
           
      }
     ngOnInit() {
@@ -29,13 +31,19 @@ export class SignInComponent{
             //console.log(data);
             
             if (data != null) {
+                this.invalidLogin = this.authenticateService.authenticate(true,email);
+                alert('logging in');
                 if(data.email=="admin@gmail.com" && data.password=="Admin@123"){
                     this.router.navigate(['/admin/home']);
                 }
                 else{
-                    this.router.navigate(['/user/bookRide']);
+                    if(data != null){
+                        this.invalidLogin = this.authenticateService.authenticate(true,email);
+                        this.router.navigate(['/user/bookRide']);
+                    }else
+                        this.invalidLogin = true;
                 }
-                // alert("done");
+                
               
   
             }

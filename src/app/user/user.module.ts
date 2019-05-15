@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserRideListComponent } from './user-ridelist.component';
 import { AdminHome } from '../admin/admin-home.component';
 import { AdminModule } from '../admin/admin.module';
+import { AuthenticateService } from './user-authenticate.service';
 
 @NgModule({
 
@@ -59,7 +60,10 @@ import { AdminModule } from '../admin/admin.module';
         UserRideListComponent,
   
     ],
-    providers: [UserService]
+    providers: [
+        UserService,
+        AuthenticateService
+    ]
 })
 
 export class UserModule {

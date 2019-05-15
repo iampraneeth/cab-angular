@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { BookRide } from './bookRide';
 import { Distance } from './distance';
 
+
 @Component({
 
     selector: "book-Ride",
@@ -41,8 +42,9 @@ export class BookRideComponent implements OnInit {
             if (data != null) {
                 alert("Done");
                 this.distance=data;
-                console.log(this.distance.finalDistance)
-                this.router.navigate(['/user/rideNow']);
+                console.log(this.distance)
+                this.router.navigateByData({url: ["/user/rideNow"], data: this.distance});
+                
             }
         });
 

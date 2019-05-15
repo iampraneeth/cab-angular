@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Admin } from './admin';
-import { Driver } from '../driver/driver';
+import { Observable } from 'rxjs';
+import { DriverDetails } from '../driver/driverdetails';
+
+
 
 @Injectable()
 export class AdminService {
@@ -17,8 +20,9 @@ export class AdminService {
 
         return this.http.get<Admin>(this.baseUrl1 + "/login/" + email + "/" + password, {headers: this.headers});
     }
-    getDetailsOfDriverService(){
-        return this.http.get<Driver>(this.baseUrl+"/okdriver");
+    
+    getDetailsOfDriverService(): Observable<DriverDetails>{
+        return this.http.get<DriverDetails>(this.baseUrl+"/okdriver");
 
     }
 }
