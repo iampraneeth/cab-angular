@@ -1,27 +1,37 @@
-<ul class="nav justify-content-center nav-tabs" style="background-color:gainsboro">
-        <li class="nav-item">
-          <a class="nav-link " href="#">Book a Ride</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Your Rides</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Payment</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " href="#" >Profile</a>
-        </li>
-      </ul>
-    <br>
-    
+<ul class="nav justify-content-end nav-tabs" style="background-color:gainsboro; height: 50px">
+  <li class="nav-item">
+    <a class="nav-link " style="font-size: 20px;" routerLink="/user/bookRide">Book a Ride</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" style="font-size: 20px;" href="#">Your Rides</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" style="font-size: 20px;" href="#">Payment</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link " style="font-size: 20px;" href="#">Profile</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link " style="font-size: 20px;" href="#">Logout</a>
+  </li>
+</ul>
 
-<form class="mx-auto col-md-4 col-md-offset-4" (ngSubmit)="bookRideOfUser()" #accountForm="ngForm" >
-     <input type="text" class="form-control " placeholder="Pickup From"  id="pickUpAt"  [(ngModel)]="bookRide.pickUpAt" name="pickUpAt" style="width:500px" required>
-     <input type="text" class="form-control ma-auto" placeholder="Drop at" id="dropAt"  [(ngModel)]="bookRide.dropAt" name="dropAT" style="width:500px" required>
-<br>
-<div class="container">
-    <img src="assets/images/map.jpg" style="width: 480px"/>
-</div>
-<br>
-<button type="submit" class="btn btn-primary " style="margin-left:200px">Ride Now</button><br><br>
+<div> <img src=" assets/images/cae2.jpg" style="position:relative; width:100%; height: 550px"></div>
+<button type="button" class="btn text-light" style="position:absolute; top:5px; z-index:1"><a routerLink=""
+    style="color: black">
+    &nbsp;Home</a>
+</button>
+
+<form (ngSubmit)="bookRideOfUser()" #accountForm="ngForm"
+  style=" position: absolute; z-index: 1;top:100px; left: 500px;">
+  <input type="text" class="form-control " placeholder="Pickup From" id="pickUpAt" [(ngModel)]="bookRide.pickUpAt"
+    name="pickUpAt" style="width:500px" required>
+  <input type="text" class="form-control ma-auto" placeholder="Drop at" id="dropAt" [(ngModel)]="bookRide.dropAt"
+    name="dropAT" style="width:500px" required>
+  <br>
+  <div class="container">
+    <img src="assets/images/map.jpg" style="width: 480px" />
+  </div>
+  <br>
+  <button type="submit" class="btn btn-primary " style="margin-left:200px">Ride Now</button><br><br>
 </form><br>

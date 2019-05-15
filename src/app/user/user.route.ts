@@ -6,6 +6,7 @@ import { UserRideListComponent } from './user-ridelist.component';
 import { BookRideComponent } from './book-ride.component';
 import { RideNowComponent } from './ride-now.component';
 import { SelectDriverComponent } from './select-driver.component';
+import { AdminHome } from '../admin/admin-home.component';
 
 
 export const userRoutes:Routes=[
@@ -15,5 +16,6 @@ export const userRoutes:Routes=[
     {path:"user/bookRide", component:BookRideComponent},
     {path:"user/rideNow", component:RideNowComponent},
     {path:"user/selectDriver", component:SelectDriverComponent},
-    {path:"user/confirmBooking", component:ConfirmBookingComponent}
+    {path:"user/confirmBooking", component:ConfirmBookingComponent},
+    {path:"admin/home",component:AdminHome}
 ];

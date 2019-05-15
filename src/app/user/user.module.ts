@@ -20,6 +20,8 @@ import { UserService } from './user.service';
 import { FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UserRideListComponent } from './user-ridelist.component';
+import { AdminHome } from '../admin/admin-home.component';
+import { AdminModule } from '../admin/admin.module';
 
 @NgModule({
 
@@ -32,7 +34,8 @@ import { UserRideListComponent } from './user-ridelist.component';
         ConfirmBookingComponent,
         UserSignUpComponent,
         SignInComponent,
-        UserRideListComponent
+        UserRideListComponent,
+   
 
     ],
 
@@ -41,6 +44,7 @@ import { UserRideListComponent } from './user-ridelist.component';
         FormsModule,
         BrowserModule,
         RouterModule.forChild(userRoutes),
+      
         
     ],
 
@@ -52,7 +56,8 @@ import { UserRideListComponent } from './user-ridelist.component';
         UserSignUpComponent,
         SignInComponent,
         RouterModule,
-        UserRideListComponent
+        UserRideListComponent,
+  
     ],
     providers: [UserService]
 })

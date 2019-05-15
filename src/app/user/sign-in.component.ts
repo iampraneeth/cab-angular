@@ -27,9 +27,16 @@ export class SignInComponent{
             console.log(this.user.email);
             alert("Login Successful");
             //console.log(data);
+            
             if (data != null) {
+                if(data.email=="admin@gmail.com" && data.password=="Admin@123"){
+                    this.router.navigate(['/admin/home']);
+                }
+                else{
+                    this.router.navigate(['/user/bookRide']);
+                }
                 // alert("done");
-                this.router.navigate(['/user/bookRide']);
+              
   
             }
         }, (err) => {

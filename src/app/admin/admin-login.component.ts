@@ -24,13 +24,11 @@ export class AdminLoginComponent{
         this.adminService.loginOfAdmin(email,password).subscribe((data) => {
             alert("Login Successful");
             //console.log(data);
-            if (data != null) {
+            // if (data != null) {
                 alert("done");
                 this.router.navigate(['/admin/driverManagement']);
-            }
-            else{
-                alert("enter correct credentials");
-            }
+            // }
+            
             
         });
     }

@@ -27,7 +27,7 @@ export class BookRideComponent implements OnInit {
     }
 
     bookRideOfUser() {
-        alert("Registration successfull");
+        //alert("Registration successfull");
         console.log(this.bookRide);
 
         let pickUpAt = (<HTMLInputElement>document.getElementById("pickUpAt")).value;
@@ -36,6 +36,7 @@ export class BookRideComponent implements OnInit {
         this.userService.bookRideOfUser(pickUpAt,dropAt).subscribe((data) => {
             console.log("success");
             console.log(data);
+            
             
             if (data != null) {
                 alert("Done");
