@@ -37,4 +37,10 @@ export class SelectDriverComponent implements OnInit {
         });
 
     }
+    completeRide(){
+        this.userService.completeRide().subscribe(()=>{
+            this.router.navigate(["/user/bookRide"]);
+        });
+    }
+
 }

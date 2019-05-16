@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Distance } from './distance';
 import { DriverDetails } from '../driver/driverdetails';
-import { Driver } from 'selenium-webdriver/opera';
+
 
 
 @Injectable()
@@ -39,6 +39,9 @@ export class UserService {
 
     return this.http.get<DriverDetails>(this.baseUrl1 + "/userdetailsfordriver");
 
+  }
+  completeRide(){
+    return this.http.get<User>(this.baseUrl1+"/ridecomplete")
   }
  
 
