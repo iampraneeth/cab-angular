@@ -26,6 +26,9 @@ export class DriverService {
     getDetailsOfUser(user:User): Observable<User>{
         return this.http.post<User>("/user/rideNow/",user,{headers: this.headers});
     }
+    getDriverDetailsForUsers(){
+        return this.http.get<Driver>(this.baseUrl+"/userdetailsfordriver")
+      }
 
 
 }

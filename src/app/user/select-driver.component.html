@@ -24,16 +24,15 @@
     <h3 style="margin-left:590px">Available drivers</h3>
 
 
-    <div class="card mb-3 " style="max-width: 540px; margin-left: 480px ">
+    <div class="card mb-3 " style="width: 540px; margin-left: 400px ">
       <div class="row no-gutters">
 
         <!-- <input type="radio" class="form-check-input" id="materialChecked2" name="materialExample2" size="20">  -->
-        <div class="col-md-8" *ngFor="let driver of drivers.driverDetails">
+        <div class="col-md-8" >
           <div class="card-body">
-            <input type="radio" class="form-check-input" id="materialChecked2" name="materialExample2" size="20">
-            <h5 class="card-title">{{driver.name}}</h5>
-            <p class="card-text">{{driver.email}}</p>
-            <p class="card-text"><small class="text-muted">{{driver.contact}}</small></p>
+            <h5 class="card-title">Name:&nbsp;&nbsp;&nbsp;{{drivers.name}}</h5>
+            <p class="card-title">Email Id:&nbsp;&nbsp;&nbsp;{{drivers.email}}</p>
+            <p class="card-title">Contact:&nbsp;&nbsp;&nbsp;{{drivers.contact}}</p>
           </div>
         </div>
       </div>
@@ -41,5 +40,5 @@
 
 
     <button type="button" class="btn btn-primary" style="margin-left: 590px"><a class="text-light"
-        routerLink="/user/confirmBooking">CONFIRM BOOKING</a></button>
+        routerLink="/user/bookRide">Complete Ride</a></button>
   </div>

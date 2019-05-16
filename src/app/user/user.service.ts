@@ -5,11 +5,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Distance } from './distance';
 import { DriverDetails } from '../driver/driverdetails';
+import { Driver } from 'selenium-webdriver/opera';
 
 
 @Injectable()
 export class UserService {
   baseUrl = "http://localhost:8011";
+  baseUrl1="http://localhost:8021";
 
   // private baseUrl = '/api';
   headers = new HttpHeaders({ 'Access-Control-Allow-Origin': '*' })
@@ -35,8 +37,9 @@ export class UserService {
 
   getDetailsOfDriverService(): Observable<DriverDetails> {
 
-    return this.http.get<DriverDetails>(this.baseUrl + "/confirmbooking");
+    return this.http.get<DriverDetails>(this.baseUrl1 + "/userdetailsfordriver");
 
   }
+ 
 
 }
