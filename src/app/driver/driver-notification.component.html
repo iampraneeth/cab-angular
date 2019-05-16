@@ -52,41 +52,39 @@
 
         <div class="card-body">
             <div class="row">
-                <div class="col-md-4"></div>
-
-                <div class="col-md-4">
+                <div class="col-md-6" *ngFor="let details of drivers.driverDetails">
                     <table class="table table-bordered">
                         <tbody>
                             <tr>
                                 <td>User Ride Id</td>
-                                <td>{{user.UserRideId}}</td>
+                                <td>{{details.UserRideId}}</td>
                             </tr>
                             <tr>
                                 <td>Pick Up Location</td>
-                                <td>{{user.pickUpLocation}}</td>
+                                <td>{{details.pickUpLocation}}</td>
                             </tr>
                             <tr>
                                 <td>Drop Location</td>
-                                <td>{{user.dropLocation}}</td>
+                                <td>{{details.dropLocation}}</td>
                             </tr>
                             <tr>
                                 <td>Ride Fare</td>
-                                <td>{{user.rideFare | currency:"INR"}}</td>
+                                <td>{{details.rideFare | currency:"INR"}}</td>
                             </tr>
                             <tr>
                                 <td>Ride Date </td>
-                                <td>{{user.rideDate | date:"EEEE , MMMM d , yyyy"}}</td>
+                                <td>{{details.rideDate | date:"EEEE , MMMM d , yyyy"}}</td>
                             </tr>
                         </tbody>
                     </table>
-                    <br>
-                    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                   
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <button type="button" class="btn btn-success">Accept</button>
                     &nbsp;&nbsp;
                     <button type="button" class="btn btn-danger">Decline</button>
                 </div>
 
-                <div class="col-md-4"></div>
+     
 
 
 

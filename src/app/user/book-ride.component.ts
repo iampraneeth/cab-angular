@@ -7,7 +7,7 @@ import { Distance } from './distance';
 
 @Component({
 
-    selector: "book-Ride",
+    //selector: "book-Ride",
 
     templateUrl: "./book-ride.component.html"
 
@@ -23,9 +23,9 @@ export class BookRideComponent implements OnInit {
         this.distance = new Distance();
     }
 
-    getDistance(){
-        return this.distance.finalDistance;
-    }
+    // getDistance(){
+    //     return this.distance.finalDistance;
+    // }
 
     bookRideOfUser() {
         //alert("Registration successfull");
@@ -33,18 +33,19 @@ export class BookRideComponent implements OnInit {
 
         let pickUpAt = (<HTMLInputElement>document.getElementById("pickUpAt")).value;
         let dropAt = (<HTMLInputElement>document.getElementById("dropAt")).value;
-        
-        this.userService.bookRideOfUser(pickUpAt,dropAt).subscribe((data) => {
+
+        this.userService.bookRideOfUser(pickUpAt, dropAt).subscribe((data) => {
             console.log("success");
-            console.log(data);
-            
-            
+            //console.log(data);
+
+
             if (data != null) {
-                alert("Done");
-                this.distance=data;
-                console.log(this.distance)
-                this.router.navigateByData({url: ["/user/rideNow"], data: this.distance});
-                
+                //alert("Done");
+                this.distance = data;
+                console.log(this.distance.finalDistance);
+                alert("The Fare is " + this.distance.finalDistance + " Rupees");
+                this.router.navigate(['/user/rideNow']);
+
             }
         });
 

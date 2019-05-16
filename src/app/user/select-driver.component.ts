@@ -1,41 +1,40 @@
-import { Component }
-    from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { DriverDetails } from '../driver/driverdetails';
+import { UserService } from './user.service';
+import { Router } from '@angular/router';
 
 
 @Component({
-
-    selector: "select-driver",
-
+    //selector: "select-driver",
     templateUrl: "./select-driver.component.html"
 
 })
 
-export class SelectDriverComponent {
 
 
+export class SelectDriverComponent implements OnInit {
 
-    driverData: any = [{
+    drivers: DriverDetails;
 
-        DriverName: "Tom",
-
-        DriverCity: "Hopkins",
-
-        Ratings: "male",
-
-    },
-
-    {
-
-        DriverName: "Tom",
-
-        DriverCity: "Hopkins",
-
-        Ratings: "male",
+    constructor(private userService: UserService, private router: Router) {
 
     }
 
-    ]
+    ngOnInit() {
 
+        this.userService.getDetailsOfDriverService().subscribe((data) => {
+
+            console.log(data)
+
+            if (data != null) {
+
+                this.drivers = data;
+
+                this.router.navigate(["/user/selectDriver"]);
+
+            }
+
+        });
+
+    }
 }
-

@@ -3,8 +3,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-import { BookRide } from './bookRide';
 import { Distance } from './distance';
+import { DriverDetails } from '../driver/driverdetails';
+
 
 @Injectable()
 export class UserService {
@@ -30,6 +31,12 @@ export class UserService {
 
   ridwNowDistance() {
     return this.http.get<Distance>(this.baseUrl + "/getdistance");
+  }
+
+  getDetailsOfDriverService(): Observable<DriverDetails> {
+
+    return this.http.get<DriverDetails>(this.baseUrl + "/confirmbooking");
+
   }
 
 }
