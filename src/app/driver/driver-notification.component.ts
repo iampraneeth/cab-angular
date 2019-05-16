@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DriverDetails } from './driverdetails';
-import { AdminService } from '../admin/admin.service';
-import { ActivatedRoute } from '@angular/router';
+import { User } from '../user/user';
+import { DriverService } from './driver.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 
@@ -11,16 +11,30 @@ import { ActivatedRoute } from '@angular/router';
     styleUrls:['./driver-welcome.component.css']
 })
 export class DriverNotificationComponent implements OnInit{
+    user:User;
+    // bookRide:BookRide;
 
-    drivers:DriverDetails;
-
-    constructor(private adminService: AdminService, private route: ActivatedRoute){}
+    constructor(private driverService:DriverService,private route: ActivatedRoute,private router:Router){}
 
     ngOnInit(){
-     this.adminService.getDetailsOfDriverService().subscribe((data)=>{
-        this.drivers = data;
-         console.log(data) 
-    })
-} 
+        this.driverService.getDetailsOfUser().subscribe((data)=>{
+            this.user=data;
+            console.log(data);
+        })
+    }
+    driverAccept(){
+        this.driverService.driverAccept().subscribe((data)=>{
+                if(data!=null){
+                    alert("Your ride is started")
+                    this.router.navigate(["/driver/welcome"]);
+
+                }
+        });
+    }
+    driverReject(){
+        alert("you cancelled the ride")
+        this.router.navigate(["/driver/home"]);
+
+    }
 
 }

@@ -3,15 +3,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
+import { BookRide } from './bookRide';
 import { Distance } from './distance';
 import { DriverDetails } from '../driver/driverdetails';
-
-
 
 @Injectable()
 export class UserService {
   baseUrl = "http://localhost:8011";
-  baseUrl1="http://localhost:8021";
+  baseUrl1 = "http://localhost:8021";
 
   // private baseUrl = '/api';
   headers = new HttpHeaders({ 'Access-Control-Allow-Origin': '*' })
@@ -34,15 +33,16 @@ export class UserService {
   ridwNowDistance() {
     return this.http.get<Distance>(this.baseUrl + "/getdistance");
   }
+  
+  getDetailsOfUser(): Observable<User>{
+    return this.http.get<User>(this.baseUrl+"/givinguserdetails");
+}
+getDetailsOfDriverService(): Observable<DriverDetails> {
 
-  getDetailsOfDriverService(): Observable<DriverDetails> {
+  return this.http.get<DriverDetails>(this.baseUrl1 + "/userdetailsfordriver1");
 
-    return this.http.get<DriverDetails>(this.baseUrl1 + "/userdetailsfordriver");
-
-  }
-  completeRide(){
-    return this.http.get<User>(this.baseUrl1+"/ridecomplete")
-  }
- 
-
+}
+completeRide(){
+  return this.http.get<User>(this.baseUrl1+"/ridecomplete")
+}
 }

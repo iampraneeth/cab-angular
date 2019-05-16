@@ -1,0 +1,68 @@
+<button type="button" class="btn text-light" style="position:absolute; top:5px; z-index:1"><a routerLink=""
+    style="color: black">
+    &nbsp;Home</a>
+</button>
+<ul class="nav justify-content-end nav-tabs" style="background-color:gainsboro; height: 50px">
+    <li class="nav-item">
+      <a class="nav-link " style="font-size: 20px;" routerLink="/user/bookRide">Book a Ride</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" style="font-size: 20px;" href="#">Your Rides</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " style="font-size: 20px;" routerLink="/user/profile">Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " style="font-size: 20px;" href="#" (click)="logOut()" >Logout</a>
+    </li>
+  </ul>
+
+  
+  <div> <img src=" assets/images/cae2.jpg" style="position:relative; width:100%; height: 500px"></div>
+  <div class="container" style=" position: absolute; width: 60%; z-index: 1;top:80px; left: 300px;background-color: lightgrey; border-radius: 10px">
+      <div class="card">
+  
+          <div class="card-header" style="text-align:center">
+              <h3>Your Profile</h3>
+          </div>
+  
+  
+          <div class="card-body">
+              <div class="row">
+                  <div class="col-md-4"></div>
+  
+                  <div class="col-md-4" >
+                      <table class="table table-bordered">
+                          <tbody>
+                              <tr>
+                                  <td>User Name</td>
+                                  <td>{{user.username}}</td>
+                              </tr>
+                              <tr>
+                                  <td>Contact No:</td>
+                                  <td>{{user.number}}</td>
+                              </tr>
+                              <tr>
+                                  <td>Emai-Id:</td>
+                                  <td>{{user.email}}</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                      <br>
+                  </div>
+  
+                  <div class="col-md-4"></div>
+  
+  
+  
+              </div>
+  
+          </div>
+  
+  
+  
+  
+  
+      </div>
+  </div>
+  <br><br>

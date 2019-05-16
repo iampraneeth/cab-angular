@@ -9,6 +9,7 @@ import { User } from '../user/user';
 export class DriverService {
 
     baseUrl = "http://localhost:8021";
+    baseurl1="http://localhost:8011";
     headers = new HttpHeaders({'Access-Control-Allow-Origin' : '*'})
 
     constructor(private http: HttpClient) {
@@ -23,12 +24,14 @@ export class DriverService {
         return this.http.get<Driver>(this.baseUrl + "/login/" + email + "/" + password, {headers: this.headers});
     }
   
-    getDetailsOfUser(user:User): Observable<User>{
-        return this.http.post<User>("/user/rideNow/",user,{headers: this.headers});
+    getDetailsOfUser(): Observable<User>{
+        return this.http.get<User>(this.baseUrl+"/userdetailsfordriver");
     }
     getDriverDetailsForUsers(){
         return this.http.get<Driver>(this.baseUrl+"/userdetailsfordriver")
       }
-
-
+      driverAccept(){
+          return this.http.get<User>(this.baseUrl+"/userdetailsfordriver")
+      }
+      
 }
