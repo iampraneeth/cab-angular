@@ -3,6 +3,7 @@ import { UserService } from './user.service';
 import { Router } from '@angular/router';
 import { BookRide } from './bookRide';
 import { Distance } from './distance';
+import { User } from './user';
 
 
 @Component({
@@ -16,11 +17,35 @@ import { Distance } from './distance';
 export class BookRideComponent implements OnInit {
     bookRide: BookRide;
     distance: Distance;
+    user: User;
+
     constructor(private userService: UserService, private router: Router) { }
 
     ngOnInit() {
         this.bookRide = new BookRide();
         this.distance = new Distance();
+        this.user = JSON.parse(sessionStorage.getItem('user'));
+        console.log(this.user);
+
+        if (this.user == null) {
+
+            alert("please log in to access");
+
+            this.router.navigate(["/user/signIn"])
+
+        }
+        if(navigator.geolocation){
+
+            navigator.geolocation.getCurrentPosition(position => {
+            
+            // this.location = position.coords;
+            
+            console.log(position.coords); 
+            
+             });
+            
+             }
+
     }
 
     // getDistance(){
@@ -49,7 +74,13 @@ export class BookRideComponent implements OnInit {
             }
         });
 
+    }
 
+    logOut() {
+
+        sessionStorage.removeItem("user");
+
+        this.router.navigate(["/user/signIn"]);
 
     }
 

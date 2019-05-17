@@ -8,10 +8,10 @@ export class AuthenticateService {
 
     constructor(private userservice: UserService) { }
 
-    authenticate(flag, email) {
+    authenticate(flag, user) {
 
         if (flag) {
-            sessionStorage.setItem('email', email)
+            sessionStorage.setItem('user', JSON.stringify(user))
             return false;
         }
         else {
@@ -21,15 +21,13 @@ export class AuthenticateService {
 
     isUserLoggedIn() {
         alert("seesion call");
-        let user = sessionStorage.getItem('email')
+        let user = sessionStorage.getItem('user')
         console.log(!(user === null))
-        console.log(sessionStorage.getItem('email'))
+        console.log(sessionStorage.getItem('user'))
         return (!user === null)
     }
     logOut() {
-
-
-        sessionStorage.removeItem('email')
+        sessionStorage.removeItem('user')
         alert("logout")
     }
 

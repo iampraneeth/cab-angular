@@ -4,6 +4,7 @@ import { BookRideComponent } from './book-ride.component';
 import { UserService } from './user.service';
 import { Router } from '@angular/router';
 import { DriverDetails } from '../driver/driverdetails';
+import { User } from './user';
 
 
 
@@ -19,14 +20,22 @@ export class RideNowComponent implements OnInit {
 
     distance: Distance;
     booking: BookRideComponent;
-
+    user: User;
 
     ngOnInit() {
 
         this.distance = this.router.getNavigatedData();
 
         this.drivers = new DriverDetails();
+        this.user = JSON.parse(sessionStorage.getItem('user'));
 
+        if (this.user == null) {
+
+            alert("please log in to access");
+
+            this.router.navigate(["/user/signIn"])
+
+        }
 
     }
     fetchDistance() {
@@ -56,4 +65,11 @@ export class RideNowComponent implements OnInit {
         });
     }
 
+    logOut() {
+
+        sessionStorage.removeItem("user");
+
+        this.router.navigate(["/user/signIn"]);
+
+    }
 }

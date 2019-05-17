@@ -23,6 +23,7 @@ import { UserRideListComponent } from './user-ridelist.component';
 import { AdminHome } from '../admin/admin-home.component';
 import { AdminModule } from '../admin/admin.module';
 import { AuthenticateService } from './user-authenticate.service';
+import { UserProfileComponent } from './user-profile.component';
 
 @NgModule({
 
@@ -36,6 +37,7 @@ import { AuthenticateService } from './user-authenticate.service';
         UserSignUpComponent,
         SignInComponent,
         UserRideListComponent,
+        UserProfileComponent
    
 
     ],
@@ -58,6 +60,7 @@ import { AuthenticateService } from './user-authenticate.service';
         SignInComponent,
         RouterModule,
         UserRideListComponent,
+        UserProfileComponent
   
     ],
     providers: [
