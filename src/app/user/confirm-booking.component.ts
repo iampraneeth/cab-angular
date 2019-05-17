@@ -31,7 +31,14 @@ export class ConfirmBookingComponent  implements OnInit{
              this.router.navigate(['/user/selectDriver']); 
           }
       });
+      
   }
+  driverAccept(){
+    this.driverService.driverAccept().subscribe((data)=>{
+        console.log(data)
+        this.router.navigate(['/user/selectDriver']); 
+    });
+}
 
 }
 

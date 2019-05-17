@@ -28,10 +28,10 @@ export class DriverService {
         return this.http.get<User>(this.baseUrl+"/userdetailsfordriver");
     }
     getDriverDetailsForUsers(){
-        return this.http.get<Driver>(this.baseUrl+"/userdetailsfordriver")
+        return this.http.get<Driver>(this.baseUrl+"/userdetailsfordriver1")
       }
       driverAccept(){
-          return this.http.get<User>(this.baseUrl+"/userdetailsfordriver")
+          return this.http.get<Driver>(this.baseUrl+"/driveraccept")
       }
       
 }

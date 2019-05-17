@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DriverDetails } from '../driver/driverdetails';
 import { UserService } from './user.service';
 import { Router } from '@angular/router';
+import { DriverService } from '../driver/driver.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class SelectDriverComponent implements OnInit {
 
     drivers: DriverDetails;
 
-    constructor(private userService: UserService, private router: Router) {
+    constructor(private userService: UserService,private driverService:DriverService, private router: Router) {
 
     }
 
@@ -42,5 +43,6 @@ export class SelectDriverComponent implements OnInit {
             this.router.navigate(["/user/bookRide"]);
         });
     }
+    
 
 }
