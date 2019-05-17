@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Admin } from './admin';
 import { Observable } from 'rxjs';
 import { DriverDetails } from '../driver/driverdetails';
+import { Driver } from '../driver/driver';
+
 
 
 
@@ -24,5 +26,13 @@ export class AdminService {
     getDetailsOfDriverService(): Observable<DriverDetails>{
         return this.http.get<DriverDetails>(this.baseUrl+"/okdriver");
 
+    }
+    acceptDriverByAdmin( email:string):Observable<Driver>
+    {
+        return this.http.get<Driver>(this.baseUrl+"/pass/"+email);
+    }
+    rejectDriverByAdmin(email:string):Observable<Driver>
+    {
+        return this.http.get<Driver>(this.baseUrl+"/fail/"+email);
     }
 }

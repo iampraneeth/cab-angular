@@ -61,6 +61,7 @@
     <div class="card-body">
       <div class="row">
         <div class="col-md-6" *ngFor="let details of drivers.driverDetails" >
+          
           <table class="table table-bordered">
             <tbody>
               <tr>
@@ -85,22 +86,16 @@
               </tr>
             </tbody>
           </table>
-        
+     
           <br>
           &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <button type="button" class="btn btn-success">Accept</button>
+          <button type="button" class="btn btn-success"(click)="acceptDriverByAdmin(details)">Accept</button>
           &nbsp;&nbsp;
-          <button type="button" class="btn btn-danger">Decline</button>
+          <button type="button" class="btn btn-danger" (click)="rejectDriverByAdmin(details)">Decline</button>
+        
         </div>
-
-
       </div>
 
     </div>
-
-
-
-
-
   </div>
 </div>
